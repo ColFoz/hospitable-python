@@ -1,0 +1,115 @@
+================================================================================
+INSTALLATION INSTRUCTIONS FOR CURSOR AGENT
+================================================================================
+
+Please execute the following commands in Terminal to install the Hospitable
+MCP Server for Claude Desktop:
+
+Step 1: Navigate to the project directory
+------------------------------------------
+cd /Users/colinforrester/hospitable-python
+
+
+Step 2: Make the installation script executable
+------------------------------------------------
+chmod +x install_mcp_macos.sh
+
+
+Step 3: Run the installation script
+------------------------------------
+./install_mcp_macos.sh
+
+
+Step 4: When the script completes, edit the Claude Desktop config
+-------------------------------------------------------------------
+code ~/Library/Application\ Support/Claude/claude_desktop_config.json
+
+(Or use nano if you prefer:)
+nano ~/Library/Application\ Support/Claude/claude_desktop_config.json
+
+
+Step 5: In the config file, replace YOUR_TOKEN_HERE with my actual Hospitable PAT
+----------------------------------------------------------------------------------
+The token is the same one I use in my Data Fetcher configuration.
+
+
+Step 6: Save the config file and completely quit Claude Desktop
+----------------------------------------------------------------
+Press Cmd+Q to quit Claude Desktop completely, then reopen it.
+
+
+Step 7: Test it in Claude Desktop
+----------------------------------
+Ask Claude: "Can you list my Hospitable properties?"
+
+
+================================================================================
+WHAT THE SCRIPT DOES
+================================================================================
+
+The install_mcp_macos.sh script will automatically:
+
+1. Find your Python installation path
+2. Upgrade pip to the latest version
+3. Install requests and python-dotenv packages
+4. Install the MCP SDK (tries multiple methods if needed)
+5. Install the Hospitable SDK in development mode
+6. Generate the Claude Desktop configuration file
+7. Optionally test the MCP server
+
+It handles all the complexity of finding the right paths and installing
+dependencies correctly.
+
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+If you encounter issues:
+
+1. MCP SDK installation fails:
+   Try manually: pip3 install git+https://github.com/modelcontextprotocol/python-sdk.git
+
+2. Permission errors:
+   The script uses --user flag for all pip installs to avoid permission issues
+
+3. Claude Desktop shows "Spawn python Enoent":
+   - Make sure the config has FULL paths (/usr/bin/python3, not python3)
+   - The installation script generates these correctly
+
+4. "Module not found" errors:
+   Run: pip3 install --user requests python-dotenv
+   And: cd /Users/colinforrester/hospitable-python && pip3 install --user -e .
+
+5. API returns 403 errors:
+   - Check that your token is correct in the config
+   - Use the same token that works with Data Fetcher
+
+
+================================================================================
+EXPECTED RESULT
+================================================================================
+
+After successful installation, you'll be able to:
+
+✓ Ask Claude to list your Hospitable properties
+✓ Get detailed property information
+✓ View reservations
+✓ Check availability
+✓ Manage guest messages
+✓ Respond to reviews
+
+All through natural language in Claude Desktop!
+
+
+================================================================================
+YOUR SPECIFIC PATHS (detected)
+================================================================================
+
+Python:      /usr/bin/python3
+Project:     /Users/colinforrester/hospitable-python
+MCP Server:  /Users/colinforrester/hospitable-python/mcp_server.py
+Config:      ~/Library/Application Support/Claude/claude_desktop_config.json
+
+
+================================================================================
