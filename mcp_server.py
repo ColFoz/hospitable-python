@@ -18,7 +18,7 @@ from mcp.types import Tool, TextContent
 
 from hospitable import HospitableClient
 from hospitable.exceptions import (
-    HospitableAPIError,
+    HospitableError,
     AuthenticationError,
     ValidationError,
     RateLimitError,
@@ -51,7 +51,7 @@ def format_error(error: Exception) -> str:
     """Format an error message for display."""
     if isinstance(error, RateLimitError):
         return f"Rate limit exceeded. Retry after: {error.retry_after} seconds"
-    elif isinstance(error, HospitableAPIError):
+    elif isinstance(error, HospitableError):
         return f"API Error ({error.status_code}): {error.message}"
     return f"Error: {str(error)}"
 
