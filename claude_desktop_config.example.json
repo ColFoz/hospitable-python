@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "hospitable": {
+      "command": "python",
+      "args": [
+        "/absolute/path/to/hospitable-python/mcp_server.py"
+      ],
+      "env": {
+        "HOSPITABLE_PAT": "your_personal_access_token_here"
+      }
+    }
+  }
+}

@@ -57,6 +57,9 @@ setup(
             "sphinx-rtd-theme>=1.0",
             "myst-parser>=0.18",
         ],
+        "mcp": [
+            "mcp>=0.9.0",
+        ],
     },
     keywords=[
         "hospitable",

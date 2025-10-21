@@ -1,0 +1,9 @@
+# MCP Server dependencies
+# Install with: pip install -r requirements-mcp.txt
+
+# MCP SDK
+mcp>=0.9.0
+
+# Core SDK dependencies (also install the main package)
+requests>=2.28.0
+python-dotenv>=0.19.0

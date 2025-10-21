@@ -334,6 +334,44 @@ flake8 hospitable/
 mypy hospitable/
 ```
 
+## MCP Server for Claude Desktop
+
+This SDK includes an MCP (Model Context Protocol) server that allows you to use the Hospitable API directly from Claude Desktop through natural language!
+
+### Features
+
+- Query properties, reservations, and reviews
+- Send messages to guests
+- Update property calendars
+- Search for available properties
+- And more - all through conversation with Claude!
+
+### Quick Setup
+
+1. Install MCP dependencies:
+   ```bash
+   pip install -r requirements-mcp.txt
+   ```
+
+2. Configure Claude Desktop (see [MCP_SERVER.md](MCP_SERVER.md) for full instructions):
+   ```json
+   {
+     "mcpServers": {
+       "hospitable": {
+         "command": "python",
+         "args": ["/path/to/hospitable-python/mcp_server.py"],
+         "env": {
+           "HOSPITABLE_PAT": "your_token_here"
+         }
+       }
+     }
+   }
+   ```
+
+3. Restart Claude Desktop and start using natural language to interact with Hospitable!
+
+For complete setup instructions and usage examples, see [MCP_SERVER.md](MCP_SERVER.md).
+
 ## API Version Support
 
 - **Current**: v2 (recommended)
